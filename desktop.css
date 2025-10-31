@@ -5,134 +5,153 @@
     --vr-header-snippet-button-padding: 0;
     --vr-header-snippet-winbuttons: flex;
 
-    div.chat_f75fb0:not(.threadSidebarOpen_f75fb0),
-    main.container__133bf,
-    div.chatLayerWrapper__01ae2 {
-        & section.container__9293f {
+    div[class*="chat_"]:not([class*="threadSidebarOpen_"]),
+    main[class*="container__"],
+    div[class*="chatLayerWrapper__"] {
+        section[class*="container__"] {
             padding-right: var(--vr-header-snippet-space);
         }
     }
 
-    div.headerBar__8a7fc.overlay__8a7fc {
+    div[class*="headerBar__"][class*="overlay__"] {
         padding-right: var(--vr-header-snippet-space);
 
-        & .tab__65d41,
-        & .searchBar__1ac1c {
+        [class*="tab__"],
+        [class*="searchBar__"] {
             -webkit-app-region: no-drag;
         }
     }
 
-    div.videoControls_bfe55a div.subtitleContainer__49508 {
+    div[class*="videoControls_"] div[class*="subtitleContainer__"] {
         padding-right: calc(var(--vr-header-snippet-space) - 20px);
 
-        & .toolbar__9293f {
+        [class*="toolbar__"] {
             -webkit-app-region: no-drag;
         }
     }
 
-    div.page_c48ade {
-        &:not(:has(> div.chat_f75fb0)) {
+    div[class*="page_"] {
+        &:not(:has(> div[class*="chat_"])) {
             anchor-name: --vr-header-snippet;
         }
 
-        & > div.chat_f75fb0 {
+        & > div[class*="chat_"] {
             anchor-name: --vr-header-snippet;
         }
     }
 
-    .winButtons_c38106 {
+    [class*="winButtons_"] {
         display: var(--vr-header-snippet-winbuttons);
     }
 
-    div.base_c48ade {
+    div[class*="base_"] {
         grid-template-rows: [top] 0 [titleBarEnd] min-content [noticeEnd] 1fr [contentEnd] min-content [end];
 
-        &:has(div.bar_c38106 > div.trailing_c38106 .updateIconForeground__49676) {
-            & div.chat_f75fb0,
-            & div.subtitleContainer_f75fb0,
-            & main.container__133bf,
-            & div.chatLayerWrapper__01ae2 {
-                & section.container__9293f {
+        &:has(div[class*="bar_"] > div[class*="trailing_"] [class*="updateIconForeground__"]) {
+            div[class*="chat_"],
+            div[class*="subtitleContainer_"],
+            main[class*="container__"],
+            div[class*="chatLayerWrapper__"] {
+                section[class*="container__"] {
                     padding-right: calc(var(--vr-header-snippet-space) + 50px);
                 }
             }
 
-            & div.videoControls_bfe55a .topControls_bfe55a div.toolbar__9293f {
+            div[class*="videoControls_"] [class*="topControls_"] div[class*="toolbar__"] {
                 margin-right: calc(var(--vr-header-snippet-space) + 30px) !important;
             }
         }
 
-        & > div.content_c48ade {
+        & > div[class*="content_"] {
             z-index: 0;
         }
 
-        & > div.bar_c38106 {
+        & > div[class*="bar_"] {
+            box-sizing: border-box;
+            min-height: auto;
+            padding: 0;
             position: absolute;
             position-anchor: --vr-header-snippet;
             top: var(--vr-header-snippet-top);
             right: anchor(right);
             width: anchor-size(width);
-            padding: 0 var(--vr-header-snippet-button-padding) 0 0;
 
-            & > .title_c38106 {
-                display: none;
+            & > [class*="leading_"] {
+                left: 0;
+                position: absolute;
+                top: 0;
+            }
+
+            & > [class*="title_"] {
+                -webkit-app-region: drag;
+                bottom: auto;
+                font-size: 0;
+                height: var(--space-12);
+                
+                > * {
+                    display: none;
+                }
             }
         }
 
-        &:has(> .notice__6e2b9) {
-            & > div.bar_c38106 {
+        &:has(> [class*="notice__"]) {
+            & > div[class*="bar_"] {
                 top: anchor(top);
             }
         }
 
-        & div.trailing_c38106 {
+        div[class*="trailing_"] {
             background: none;
             border: none;
             height: var(--custom-channel-header-height);
+            padding-right: var(--vr-header-snippet-button-padding);
+            position: absolute;
+            right: 0;
+            top: 0;
         }
 
-        &:has(.threadSidebarOpen_f75fb0.threadSidebarFloating_f75fb0) > .bar_c38106 {
+        &:has([class*="threadSidebarOpen_"][class*="threadSidebarFloating_"]) > [class*="bar_"] {
             z-index: 0;
         }
     }
 
-    :not(:has(div.page_c48ade > div.chat_f75fb0)) div.base_c48ade > div.bar_c38106 {
+    :not(:has(div[class*="page_"] > div[class*="chat_"])) div[class*="base_"] > div[class*="bar_"] {
         right: 0 !important;
     }
 
-    ul[data-list-id="guildsnav"] > div.itemsContainer_ef3116 > div.stack_dbd263 {
+    ul[data-list-id="guildsnav"] > div[class*="itemsContainer_"] > div[class*="stack_"] {
         margin-top: var(--vr-header-snippet-server-padding);
     }
 
-    section.headerBar__80679,
-    section.header__0b563 div.toolbar__9293f,
-    section.header_c791b2 div.toolbar__9293f,
-    section.header_c791b2 div.children__9293f,
-    :not(.videoControls_bfe55a) div.topic__6ec1a {
+    section[class*="headerBar__"],
+    section[class*="header__"] div[class*="toolbar__"],
+    section[class*="header_"] div[class*="toolbar__"],
+    section[class*="header_"] div[class*="children__"],
+    :not([class*="videoControls_"]) div[class*="topic__"] {
         -webkit-app-region: no-drag;
     }
 
-    .shop__6db1d section.showToolbar__9293f {
+    [class*="shop__"] section[class*="showToolbar__"] {
         padding-right: var(--vr-header-snippet-space);
 
-        .balanceWidgetMenu__80679 {
+        [class*="balanceWidgetMenu__"] {
             margin-right: 0;
         }
     }
 
-    .div.videoControls_bfe55a .topControls_bfe55a {
+    div[class*="videoControls_"] [class*="topControls_"] {
         z-index: -1;
     }
 
-    .profileThemedContainer__656be .topRow__34940 {
+    [class*="profileThemedContainer__"] [class*="topRow__"] {
         align-items: end;
         padding-bottom: 0;
 
-        & .closeAction__34940 {
+        [class*="closeAction__"] {
             -webkit-app-region: no-drag;
         }
 
-        & .memberNameContainer__34940 {
+        [class*="memberNameContainer__"] {
             padding-bottom: 12px;
         }
     }
