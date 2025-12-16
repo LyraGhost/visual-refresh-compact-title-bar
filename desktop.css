@@ -5,68 +5,70 @@
     --vr-header-snippet-button-padding: 0;
     --vr-header-snippet-winbuttons: flex;
 
-    div[class*="chat_"]:not([class*="threadSidebarOpen_"]),
-    main[class*="container__"],
-    div[class*="chatLayerWrapper__"] {
-        section[class*="container__"] {
+    div[class*="-chat"]:not([class*="-threadSidebarOpen"]),
+    main[class*="-container"],
+    div[class*="-chatLayerWrapper"] {
+        section[class*="-container"] {
             padding-right: var(--vr-header-snippet-space);
         }
     }
 
-    div[class*="headerBar__"][class*="overlay__"] {
+    div[class*="-headerBar"][class*="-overlay"] {
         padding-right: var(--vr-header-snippet-space);
 
-        [class*="tab__"],
-        [class*="searchBar__"] {
+        [class*="-tab"],
+        [class*="-searchBar"] {
             -webkit-app-region: no-drag;
         }
     }
 
-    div[class*="videoControls_"] div[class*="subtitleContainer__"] {
-        padding-right: calc(var(--vr-header-snippet-space) - 20px);
+    div[class*="-videoControls"] div[class*="-subtitleContainer"] [class*="-toolbar"] {
+        -webkit-app-region: no-drag;
+    }
 
-        [class*="toolbar__"] {
-            -webkit-app-region: no-drag;
+    div[class*="-video"][class*="-sidebarOpen"] {
+        [class*="-videoControls"] section[class*="-container"] {
+            padding-right: var(--space-md);
         }
     }
 
-    div[class*="page_"] {
-        &:not(:has(> div[class*="chat_"])) {
+    div[class*="-page"] {
+        &:not(:has(> div[class*="-chat"])) {
             anchor-name: --vr-header-snippet;
         }
 
-        & > div[class*="chat_"] {
+        & > div[class*="-chat"] {
             anchor-name: --vr-header-snippet;
         }
     }
 
-    [class*="winButtons_"] {
+    [class*="-winButtons"] {
         display: var(--vr-header-snippet-winbuttons);
     }
 
-    div[class*="base_"] {
+    div[class*="-base"] {
         grid-template-rows: [top] 0 [titleBarEnd] min-content [noticeEnd] 1fr [contentEnd] min-content [end];
 
-        &:has(div[class*="bar_"] > div[class*="trailing_"] [class*="updateIconForeground__"]) {
-            div[class*="chat_"],
-            div[class*="subtitleContainer_"],
-            main[class*="container__"],
-            div[class*="chatLayerWrapper__"] {
-                section[class*="container__"] {
+        &:has(div[class*="-bar"] > div[class*="-trailing"] [class*="-updateIconForeground"]) {
+            div[class*="-chat"],
+            div[class*="-subtitleContainer"],
+            main[class*="-container"],
+            div[class*="-chatLayerWrapper"] {
+                section[class*="-container"] {
                     padding-right: calc(var(--vr-header-snippet-space) + 50px);
                 }
             }
 
-            div[class*="videoControls_"] [class*="topControls_"] div[class*="toolbar__"] {
+            div[class*="-videoControls"] [class*="-topControls"] div[class*="-toolbar"] {
                 margin-right: calc(var(--vr-header-snippet-space) + 30px) !important;
             }
         }
 
-        & > div[class*="content_"] {
+        & > div[class*="-content"] {
             z-index: 0;
         }
 
-        & > div[class*="bar_"] {
+        & > div[class*="-bar"] {
             box-sizing: border-box;
             min-height: auto;
             padding: 0;
@@ -76,13 +78,13 @@
             right: anchor(right);
             width: anchor-size(width);
 
-            & > [class*="leading_"] {
+            & > [class*="-leading"] {
                 left: 0;
                 position: absolute;
                 top: 0;
             }
 
-            & > [class*="title_"] {
+            & > [class*="-title"] {
                 -webkit-app-region: drag;
                 bottom: auto;
                 font-size: 0;
@@ -92,15 +94,20 @@
                     display: none;
                 }
             }
+
+            [aria-label="Checkpoint"] {
+                display: none;
+            }
         }
 
-        &:has(> [class*="notice__"]) {
-            & > div[class*="bar_"] {
+        &:has(> [class*="-notice"]) {
+            & > div[class*="-bar"] {
                 top: anchor(top);
             }
         }
 
-        div[class*="trailing_"] {
+        div[class*="-trailing"] {
+            anchor-name: --vr-header-buttons-snippet;
             background: none;
             border: none;
             height: var(--custom-channel-header-height);
@@ -110,48 +117,43 @@
             top: 0;
         }
 
-        &:has([class*="threadSidebarOpen_"][class*="threadSidebarFloating_"]) > [class*="bar_"] {
+        &:has([class*="-threadSidebarOpen"][class*="-threadSidebarFloating"]) > [class*="-bar"] {
             z-index: 0;
         }
     }
 
-    :not(:has(div[class*="page_"] > div[class*="chat_"])) div[class*="base_"] > div[class*="bar_"] {
+    :not(:has(div[class*="-page"] > div[class*="-chat"])) div[class*="-base"] > div[class*="-bar"] {
         right: 0 !important;
     }
 
-    ul[data-list-id="guildsnav"] > div[class*="itemsContainer_"] > div[class*="stack_"] {
+    ul[data-list-id="guildsnav"] > div[class*="-itemsContainer"] > div[class*="-stack"] {
         margin-top: var(--vr-header-snippet-server-padding);
     }
 
-    section[class*="headerBar__"],
-    section[class*="header__"] div[class*="toolbar__"],
-    section[class*="header_"] div[class*="toolbar__"],
-    section[class*="header_"] div[class*="children__"],
-    :not([class*="videoControls_"]) div[class*="topic__"] {
+    section[class*="-headerBar"],
+    section[class*="-header"] div[class*="-toolbar"],
+    section[class*="-header"] div[class*="-children"],
+    :not([class*="-videoControls"]) div[class*="-topic"] {
         -webkit-app-region: no-drag;
     }
 
-    [class*="shop__"] section[class*="showToolbar__"] {
+    [class*="-shop"] section[class*="-headerBar"] {
         padding-right: var(--vr-header-snippet-space);
-
-        [class*="balanceWidgetMenu__"] {
+        
+        [class*="-balanceWidgetMenu"] {
             margin-right: 0;
         }
     }
 
-    div[class*="videoControls_"] [class*="topControls_"] {
-        z-index: -1;
-    }
-
-    [class*="profileThemedContainer__"] [class*="topRow__"] {
+    [class*="-profileThemedContainer"] [class*="-topRow"] {
         align-items: end;
         padding-bottom: 0;
 
-        [class*="closeAction__"] {
+        [class*="-closeAction"] {
             -webkit-app-region: no-drag;
         }
 
-        [class*="memberNameContainer__"] {
+        [class*="-memberNameContainer"] {
             padding-bottom: 12px;
         }
     }
